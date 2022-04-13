@@ -9,8 +9,8 @@ import {
 
 const FormInput = ({ label, icon, altText }) => {
   return (
-    <FormControl>
-      <FormLabel>{label}</FormLabel>
+    <FormControl marginY='10px'>
+      <FormLabel fontSize='15px'>{label}</FormLabel>
       <InputGroup>
         <InputLeftElement
           pointerEvents='none'
@@ -23,6 +23,7 @@ const FormInput = ({ label, icon, altText }) => {
           textAlign='right'
           fontSize='24px'
           color='cyan.600'
+          bg='cyan.100'
         />
       </InputGroup>
     </FormControl>
