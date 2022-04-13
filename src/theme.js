@@ -15,6 +15,13 @@ const theme = extendTheme({
       600: "#00494d", // dark cyan
     },
   },
+  breakpoints: {
+    sm: "375px",
+    md: "768px",
+    lg: "960px",
+    xl: "1200px",
+    "2xl": "1536px",
+  },
   components: {
     Button: {
       variants: {
