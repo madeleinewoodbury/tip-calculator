@@ -1,21 +1,8 @@
-import { useState } from "react";
 import { Box } from "@chakra-ui/react";
 import Form from "./Form";
 import Result from "./Result";
 
 const Card = () => {
-  const [formData, setFormData] = useState({
-    bill: "",
-    tip: 0,
-    people: "",
-    tipAmount: "",
-    totalAmount: "",
-  });
-
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
   return (
     <Box
       width={{ base: "100%", md: "768px" }}
@@ -28,7 +15,7 @@ const Card = () => {
       display='flex'
       flexDirection={{ base: "column", md: "row" }}
     >
-      <Form formData={formData} handleChange={handleChange} />
+      <Form />
       <Result />
     </Box>
   );
