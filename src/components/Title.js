@@ -1,4 +1,5 @@
-import { Box, Text } from "@chakra-ui/react";
+import { Box, Image } from "@chakra-ui/react";
+import logo from "../images/logo.svg";
 
 const Title = () => {
   return (
@@ -11,8 +12,7 @@ const Title = () => {
       letterSpacing='2px'
       fontSize='20px'
     >
-      <Text>SPLI</Text>
-      <Text>TTER</Text>
+      <Image src={logo} alt='' />
     </Box>
   );
 };
