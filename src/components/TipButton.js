@@ -17,6 +17,7 @@ const TipButton = ({ tip, custom }) => {
           fontSize='24px'
           color='cyan.600'
           bg='cyan.100'
+          autoFocus
         />
       ) : (
         <Button

@@ -1,8 +1,8 @@
-import { Box, SimpleGrid } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import dollar from "../images/icon-dollar.svg";
 import person from "../images/icon-person.svg";
 import FormInput from "./FormInput";
-import TipButton from "./TipButton";
+import SelectTip from "./SelectTip";
 
 const Form = () => {
   return (
@@ -12,16 +12,12 @@ const Form = () => {
       padding='10px 20px'
       color='cyan.300'
       marginRight='20px'
+      display='flex'
+      flexDirection='column'
+      justifyContent='space-between'
     >
       <FormInput label='Bill' icon={dollar} altText='dollar sign' />
-      <SimpleGrid columns={3} spacing='10px'>
-        <TipButton tip='5%' />
-        <TipButton tip='10%' />
-        <TipButton tip='15%' />
-        <TipButton tip='25%' />
-        <TipButton tip='50%' />
-        <TipButton custom />
-      </SimpleGrid>
+      <SelectTip />
       <FormInput label='Number of People' icon={person} altText='person icon' />
     </Box>
   );
