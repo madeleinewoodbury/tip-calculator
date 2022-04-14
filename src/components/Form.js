@@ -4,7 +4,7 @@ import person from "../images/icon-person.svg";
 import FormInput from "./FormInput";
 import SelectTip from "./SelectTip";
 
-const Form = () => {
+const Form = ({ formData, handleChange }) => {
   return (
     <Box
       as='form'
@@ -16,9 +16,23 @@ const Form = () => {
       flexDirection='column'
       justifyContent='space-between'
     >
-      <FormInput label='Bill' icon={dollar} altText='dollar sign' />
-      <SelectTip />
-      <FormInput label='Number of People' icon={person} altText='person icon' />
+      <FormInput
+        label='Bill'
+        icon={dollar}
+        altText='dollar sign'
+        name='bill'
+        formData={formData}
+        handleChange={handleChange}
+      />
+      <SelectTip handleChange={handleChange} />
+      <FormInput
+        label='Number of People'
+        icon={person}
+        altText='person icon'
+        name='people'
+        formData={formData}
+        handleChange={handleChange}
+      />
     </Box>
   );
 };

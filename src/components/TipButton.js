@@ -1,46 +1,43 @@
 import { useState } from "react";
 import { Button, Input, Box } from "@chakra-ui/react";
 
-const TipButton = ({ tip, custom }) => {
-  const [customAmount, setCustomAmount] = useState(0);
-  const [input, setInput] = useState(false);
+const TipButton = ({ tip, handleChange, custom }) => {
+  const [customAmount, setCustomAmount] = useState("");
+
+  const handleTip = (e) => {
+    handleChange(e);
+  };
+
+  const handleCustomAmount = (e) => {
+    setCustomAmount(e.target.value);
+    handleChange(e);
+  };
 
   return custom ? (
-    <Box>
-      {input ? (
-        <Input
-          type='number'
-          value={customAmount}
-          onChange={(e) => setCustomAmount(e.target.value)}
-          focusBorderColor='cyan.500'
-          textAlign='right'
-          fontSize='24px'
-          color='cyan.600'
-          bg='cyan.100'
-          autoFocus
-        />
-      ) : (
-        <Button
-          bg='cyan.100'
-          color='cyan.300'
-          _hover={{ bg: "rgba(38, 192, 171, .5)", color: "cyan.600" }}
-          _focus={{ bg: "cyan.500", color: "cyan.600", outline: "none" }}
-          onClick={(e) => setInput(true)}
-          width='100%'
-        >
-          Custom
-        </Button>
-      )}
-    </Box>
+    <Input
+      type='number'
+      name='tip'
+      value={customAmount}
+      onChange={handleCustomAmount}
+      placeholder='Custom'
+      focusBorderColor='cyan.500'
+      textAlign='right'
+      fontSize={customAmount ? "24px" : "15px"}
+      color='cyan.600'
+      bg='cyan.100'
+      autoFocus
+    />
   ) : (
     <Button
       bg='cyan.600'
       color='white'
       _hover={{ bg: "rgba(38, 192, 171, .5)", color: "cyan.600" }}
       _focus={{ bg: "cyan.500", color: "cyan.600", outline: "none" }}
-      onClick={(e) => setInput(false)}
+      onClick={handleTip}
+      value={tip}
+      name='tip'
     >
-      {tip}
+      {tip}%
     </Button>
   );
 };

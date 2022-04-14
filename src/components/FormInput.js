@@ -7,7 +7,7 @@ import {
   InputGroup,
 } from "@chakra-ui/react";
 
-const FormInput = ({ label, icon, altText }) => {
+const FormInput = ({ label, icon, altText, name, formData, handleChange }) => {
   return (
     <FormControl marginY='10px'>
       <FormLabel fontSize='15px'>{label}</FormLabel>
@@ -19,6 +19,10 @@ const FormInput = ({ label, icon, altText }) => {
         />
         <Input
           type='number'
+          name={name}
+          value={name === "bill" ? formData.bill : formData.people}
+          placeholder={0}
+          onChange={(e) => handleChange(e)}
           focusBorderColor='cyan.500'
           textAlign='right'
           fontSize='24px'
