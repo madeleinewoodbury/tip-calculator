@@ -5,6 +5,7 @@ import Result from "./Result";
 const Card = () => {
   return (
     <Box
+      as='main'
       width={{ base: "100%", md: "768px" }}
       marginBottom={{ base: "20px", md: "150px" }}
       bg='white'

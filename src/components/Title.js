@@ -4,7 +4,9 @@ import logo from "../images/logo.svg";
 const Title = () => {
   return (
     <Box as='header' paddingY='40px'>
-      <Image width='75px' src={logo} alt='SPLITTER logo' />
+      <Box as='h1'>
+        <Image width='75px' src={logo} alt='SPLITTER logo' />
+      </Box>
     </Box>
   );
 };
