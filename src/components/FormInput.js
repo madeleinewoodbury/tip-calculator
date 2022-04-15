@@ -19,7 +19,7 @@ const FormInput = ({ label, icon, altText, name, formData, handleChange }) => {
         <Input
           type='number'
           name={name}
-          value={name === "bill" ? formData.bill : formData.people}
+          value={formData === 0 ? "" : formData}
           placeholder={0}
           onChange={(e) => handleChange(e)}
           focusBorderColor='cyan.500'

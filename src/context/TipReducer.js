@@ -38,6 +38,11 @@ const tipReducer = (state, action) => {
         ...state,
         tip: action.payload,
       };
+    case "SET_CUSTOM":
+      return {
+        ...state,
+        custom: action.payload,
+      };
     case "SET_PEOPLE":
       return {
         ...state,
@@ -48,6 +53,15 @@ const tipReducer = (state, action) => {
         ...state,
         tipAmount: calculateTipAmount(state),
         totalAmount: calculateTotalAmount(state),
+      };
+    case "RESET":
+      return {
+        bill: 0,
+        tip: 0,
+        custom: 0,
+        people: 0,
+        tipAmount: 0,
+        totalAmount: 0,
       };
     default:
       return state;

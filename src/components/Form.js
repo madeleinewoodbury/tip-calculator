@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect } from "react";
 import TipContext from "../context/TipContext";
 import { Box } from "@chakra-ui/react";
 import dollar from "../images/icon-dollar.svg";
@@ -9,14 +9,7 @@ import SelectTip from "./SelectTip";
 const Form = () => {
   const { dispatch, bill, tip, people } = useContext(TipContext);
 
-  const [formData, setFormData] = useState({
-    bill,
-    tip,
-    people,
-  });
-
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
     switch (e.target.name) {
       case "bill":
         dispatch({ type: "SET_BILL", payload: e.target.value });
@@ -34,6 +27,8 @@ const Form = () => {
     dispatch({ type: "SET_AMOUNT" });
   };
 
+  useEffect(() => {}, [tip]);
+
   return (
     <Box
       as='form'
@@ -50,7 +45,7 @@ const Form = () => {
         icon={dollar}
         altText='dollar sign'
         name='bill'
-        formData={formData}
+        formData={bill}
         handleChange={handleChange}
       />
       <SelectTip handleChange={handleChange} />
@@ -59,7 +54,7 @@ const Form = () => {
         icon={person}
         altText='person icon'
         name='people'
-        formData={formData}
+        formData={people}
         handleChange={handleChange}
       />
     </Box>

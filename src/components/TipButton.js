@@ -1,43 +1,44 @@
-import { useState } from "react";
-import { Button, Input, Box } from "@chakra-ui/react";
+import { useContext } from "react";
+import TipContext from "../context/TipContext";
+import { Button, Input } from "@chakra-ui/react";
 
-const TipButton = ({ tip, handleChange, custom }) => {
-  const [customAmount, setCustomAmount] = useState("");
+const TipButton = ({ value, handleChange }) => {
+  const { dispatch, tip, custom } = useContext(TipContext);
 
   const handleTip = (e) => {
+    dispatch({ type: "SET_CUSTOM", payload: 0 });
     handleChange(e);
   };
 
   const handleCustomAmount = (e) => {
-    setCustomAmount(e.target.value);
+    dispatch({ type: "SET_CUSTOM", payload: e.target.value });
     handleChange(e);
   };
 
-  return custom ? (
+  return value === "" ? (
     <Input
       type='number'
       name='tip'
-      value={customAmount}
+      value={custom === 0 ? value : custom}
       onChange={handleCustomAmount}
       placeholder='Custom'
       focusBorderColor='cyan.500'
       textAlign='right'
-      fontSize={customAmount ? "24px" : "15px"}
+      fontSize={custom === 0 ? "15px" : "24px"}
       color='cyan.600'
       bg='cyan.100'
-      autoFocus
     />
   ) : (
     <Button
-      bg='cyan.600'
-      color='white'
+      bg={Number(tip) === value ? "cyan.500" : "cyan.600"}
+      color={Number(tip) === value ? "cyan.600" : "white"}
       _hover={{ bg: "rgba(38, 192, 171, .5)", color: "cyan.600" }}
       _focus={{ bg: "cyan.500", color: "cyan.600", outline: "none" }}
       onClick={handleTip}
-      value={tip}
+      value={value}
       name='tip'
     >
-      {tip}%
+      {value}%
     </Button>
   );
 };

@@ -4,7 +4,12 @@ import TipContext from "../context/TipContext";
 import Amount from "./Amount";
 
 const Result = () => {
-  const { tipAmount, totalAmount } = useContext(TipContext);
+  const { dispatch, tipAmount, totalAmount } = useContext(TipContext);
+
+  const handleClick = () => {
+    dispatch({ type: "RESET" });
+  };
+
   return (
     <Box
       width={{ base: "100%", md: "50%" }}
@@ -26,7 +31,7 @@ const Result = () => {
         />
       </Box>
 
-      <Button bg='cyan.500' color='cyan.600' width='100%'>
+      <Button bg='cyan.500' color='cyan.600' width='100%' onClick={handleClick}>
         RESET
       </Button>
     </Box>

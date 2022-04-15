@@ -5,9 +5,10 @@ const TipContext = createContext();
 
 export const TipProvider = ({ children }) => {
   const initalState = {
-    bill: "",
-    tip: "",
-    people: "",
+    bill: 0,
+    tip: 0,
+    custom: 0,
+    people: 0,
     tipAmount: 0,
     totalAmount: 0,
   };
