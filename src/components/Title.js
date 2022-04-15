@@ -3,16 +3,8 @@ import logo from "../images/logo.svg";
 
 const Title = () => {
   return (
-    <Box
-      as='header'
-      marginBottom='60px'
-      textAlign='center'
-      color='cyan.600'
-      opacity='0.8'
-      letterSpacing='2px'
-      fontSize='20px'
-    >
-      <Image src={logo} alt='' />
+    <Box as='header' paddingY='40px'>
+      <Image width='75px' src={logo} alt='SPLITTER logo' />
     </Box>
   );
 };

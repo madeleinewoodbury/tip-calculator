@@ -8,8 +8,8 @@ export const TipProvider = ({ children }) => {
     bill: "",
     tip: "",
     people: "",
-    tipAmount: "",
-    totalAmount: "",
+    tipAmount: 0,
+    totalAmount: 0,
   };
 
   const [state, dispatch] = useReducer(tipReducer, initalState);

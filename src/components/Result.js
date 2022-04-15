@@ -1,17 +1,34 @@
-import { Box } from "@chakra-ui/react";
+import { useContext } from "react";
+import { Box, Button } from "@chakra-ui/react";
+import TipContext from "../context/TipContext";
 import Amount from "./Amount";
 
 const Result = () => {
+  const { tipAmount, totalAmount } = useContext(TipContext);
   return (
     <Box
-      width='50%'
-      height='100%'
+      width={{ base: "100%", md: "50%" }}
       bg='cyan.600'
       borderRadius='15px'
       padding='30px'
+      display='flex'
+      flexDirection='column'
+      justifyContent='space-between'
     >
-      <Amount text='Tip Amount' amount='0.00' />
-      <Amount text='Total' amount='0.00' />
+      <Box>
+        <Amount
+          text='Tip Amount'
+          amount={tipAmount === 0 ? "0.00" : tipAmount.toFixed(2)}
+        />
+        <Amount
+          text='Total'
+          amount={totalAmount === 0 ? "0.00" : totalAmount.toFixed(2)}
+        />
+      </Box>
+
+      <Button bg='cyan.500' color='cyan.600' width='100%'>
+        RESET
+      </Button>
     </Box>
   );
 };

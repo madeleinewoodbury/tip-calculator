@@ -8,7 +8,7 @@ import {
 
 const FormInput = ({ label, icon, altText, name, formData, handleChange }) => {
   return (
-    <FormControl marginY='10px'>
+    <FormControl>
       <FormLabel fontSize='15px'>{label}</FormLabel>
       <InputGroup>
         <InputLeftElement

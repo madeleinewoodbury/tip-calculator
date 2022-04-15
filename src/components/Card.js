@@ -6,8 +6,7 @@ const Card = () => {
   return (
     <Box
       width={{ base: "100%", md: "768px" }}
-      height='400px'
-      marginBottom='100px'
+      marginBottom={{ base: "0", md: "150px" }}
       bg='white'
       padding='20px'
       borderRadius='15px'

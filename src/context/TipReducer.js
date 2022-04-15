@@ -1,3 +1,31 @@
+const calculateTipAmount = (state) => {
+  const bill = Number(state.bill);
+  const tip = Number(state.tip) / 100;
+  const people = Number(state.people);
+
+  if (bill > 0 && people > 0) {
+    if (tip == 0) {
+      return 0;
+    } else {
+      return (bill * tip) / people;
+    }
+  }
+
+  return 0;
+};
+
+const calculateTotalAmount = (state) => {
+  const bill = Number(state.bill);
+  const tip = 1 + Number(state.tip) * (1 / 100);
+  const people = Number(state.people);
+
+  if (people > 0) {
+    return (bill * tip) / people;
+  }
+
+  return 0;
+};
+
 const tipReducer = (state, action) => {
   switch (action.type) {
     case "SET_BILL":
@@ -14,6 +42,12 @@ const tipReducer = (state, action) => {
       return {
         ...state,
         people: action.payload,
+      };
+    case "SET_AMOUNT":
+      return {
+        ...state,
+        tipAmount: calculateTipAmount(state),
+        totalAmount: calculateTotalAmount(state),
       };
     default:
       return state;

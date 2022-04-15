@@ -3,7 +3,7 @@ import TipButton from "./TipButton";
 
 const SelectTip = ({ handleChange }) => {
   return (
-    <Box>
+    <Box marginY='30px'>
       <Text fontSize='15px' marginBottom='8px'>
         Select Tip %
       </Text>
