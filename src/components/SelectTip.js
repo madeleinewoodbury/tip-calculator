@@ -8,7 +8,7 @@ const SelectTip = ({ handleChange }) => {
       <Text fontSize='15px' marginBottom='8px'>
         Select Tip %
       </Text>
-      <SimpleGrid columns={3} spacing='10px'>
+      <SimpleGrid columns={{ base: 2, md: 3 }} spacing='10px'>
         {values.map((val) => (
           <TipButton key={val} value={val} handleChange={handleChange} />
         ))}

@@ -24,7 +24,7 @@ const TipButton = ({ value, handleChange }) => {
       placeholder='Custom'
       focusBorderColor='cyan.500'
       textAlign='right'
-      fontSize={custom === 0 ? "15px" : "24px"}
+      fontSize={{ base: "24px", md: custom === 0 ? "15px" : "24px" }}
       color='cyan.600'
       bg='cyan.100'
     />

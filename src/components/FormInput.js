@@ -21,7 +21,7 @@ const FormInput = ({
       <FormLabel fontSize='15px' display='flex' justifyContent='space-between'>
         <Box as='span'>{label}</Box>
         {error && (
-          <Box as='span' fontSize='15px' color='orange'>
+          <Box as='span' fontSize='15px' color='orange.400'>
             {error}
           </Box>
         )}
@@ -38,8 +38,9 @@ const FormInput = ({
           value={formData === 0 ? "" : formData}
           placeholder={0}
           onChange={(e) => handleChange(e)}
-          focusBorderColor={error ? "orange" : "cyan.500"}
-          borderColor={error ? "orange" : "none"}
+          borderWidth='2px'
+          focusBorderColor={error ? "orange.400" : "cyan.500"}
+          borderColor={error ? "orange.400" : "cyan.100"}
           textAlign='right'
           fontSize='24px'
           color='cyan.600'

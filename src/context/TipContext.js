@@ -11,6 +11,7 @@ export const TipProvider = ({ children }) => {
     people: 0,
     tipAmount: 0,
     totalAmount: 0,
+    reset: false,
     error: null,
   };
 

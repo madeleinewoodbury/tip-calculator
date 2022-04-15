@@ -35,7 +35,7 @@ const Form = () => {
       width={{ base: "100%", md: "50%" }}
       padding='10px 20px'
       color='cyan.300'
-      marginRight='20px'
+      margin={{ base: "0 0 30px 0", md: "0 20px 0 0" }}
       display='flex'
       flexDirection='column'
       justifyContent='space-between'

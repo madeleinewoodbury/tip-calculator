@@ -4,7 +4,7 @@ const calculateTipAmount = (state) => {
   const people = Number(state.people);
 
   if (bill > 0 && people > 0) {
-    if (tip == 0) {
+    if (tip === 0) {
       return 0;
     } else {
       return (bill * tip) / people;
@@ -32,22 +32,26 @@ const tipReducer = (state, action) => {
       return {
         ...state,
         bill: action.payload,
+        reset: true,
       };
     case "SET_TIP":
       return {
         ...state,
         tip: action.payload,
+        reset: true,
       };
     case "SET_CUSTOM":
       return {
         ...state,
         custom: action.payload,
+        reset: true,
       };
     case "SET_PEOPLE":
       return {
         ...state,
         people: action.payload,
         error: action.payload === "0" ? "Can't be zero" : null,
+        reset: true,
       };
     case "SET_AMOUNT":
       return {
@@ -64,6 +68,7 @@ const tipReducer = (state, action) => {
         tipAmount: 0,
         totalAmount: 0,
         error: null,
+        reset: false,
       };
     default:
       return state;

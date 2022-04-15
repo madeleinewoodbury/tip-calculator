@@ -4,7 +4,7 @@ import TipContext from "../context/TipContext";
 import Amount from "./Amount";
 
 const Result = () => {
-  const { dispatch, tipAmount, totalAmount } = useContext(TipContext);
+  const { dispatch, tipAmount, totalAmount, reset } = useContext(TipContext);
 
   const handleClick = () => {
     dispatch({ type: "RESET" });
@@ -30,10 +30,18 @@ const Result = () => {
           amount={totalAmount === 0 ? "0.00" : totalAmount.toFixed(2)}
         />
       </Box>
-
-      <Button bg='cyan.500' color='cyan.600' width='100%' onClick={handleClick}>
-        RESET
-      </Button>
+      <Box bg={reset ? "white" : "transparent"} borderRadius='0.375rem'>
+        <Button
+          bg={reset ? "cyan.500" : "rgba(38, 192, 171, .5)"}
+          color='cyan.600'
+          width='100%'
+          onClick={handleClick}
+          _hover={{ bg: "rgba(38, 192, 171, .5)", color: "cyan.600" }}
+          disabled={!reset}
+        >
+          RESET
+        </Button>
+      </Box>
     </Box>
   );
 };
