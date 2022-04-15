@@ -47,6 +47,7 @@ const tipReducer = (state, action) => {
       return {
         ...state,
         people: action.payload,
+        error: action.payload === "0" ? "Can't be zero" : null,
       };
     case "SET_AMOUNT":
       return {
@@ -62,6 +63,7 @@ const tipReducer = (state, action) => {
         people: 0,
         tipAmount: 0,
         totalAmount: 0,
+        error: null,
       };
     default:
       return state;

@@ -7,7 +7,7 @@ import FormInput from "./FormInput";
 import SelectTip from "./SelectTip";
 
 const Form = () => {
-  const { dispatch, bill, tip, people } = useContext(TipContext);
+  const { dispatch, bill, tip, people, error } = useContext(TipContext);
 
   const handleChange = (e) => {
     switch (e.target.name) {
@@ -56,6 +56,7 @@ const Form = () => {
         name='people'
         formData={people}
         handleChange={handleChange}
+        error={error}
       />
     </Box>
   );
